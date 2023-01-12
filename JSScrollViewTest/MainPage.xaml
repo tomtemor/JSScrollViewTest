@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:JSScrollViewTest"
+             x:Class="JSScrollViewTest.MainPage"
+             xmlns:pages="clr-namespace:JSScrollViewTest.Pages"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+    <ContentPage Title="Main Page" Padding="0" NavigationPage.HasNavigationBar="False">
+        <ScrollView>
+            <BlazorWebView x:Name="blazorWebView" HostPage="wwwroot/index.html">
+                <BlazorWebView.RootComponents>
+                    <RootComponent Selector="#app" ComponentType="{x:Type local:Main}" />
+                </BlazorWebView.RootComponents>
+            </BlazorWebView>
+        </ScrollView>
+    </ContentPage>
+
+    <ContentPage Title="Page 2" Padding="10" NavigationPage.HasNavigationBar="False">
+        <BlazorWebView x:Name="blazorWebView_Page2" HostPage="wwwroot/index.html" VerticalOptions="FillAndExpand">
+            <BlazorWebView.RootComponents>
+                <RootComponent Selector="#app" ComponentType="{x:Type pages:Page2}" />
+            </BlazorWebView.RootComponents>
+        </BlazorWebView>
+    </ContentPage>
+</TabbedPage>

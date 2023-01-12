@@ -1,0 +1,61 @@
+﻿@page "/"
+
+<h1>Hello, world!</h1>
+This page is a blazor page inside a Maui scrollview page<br /><br />
+
+<pre>
+start
+
+scroll down! v
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br class="line-break">
+scroll down
+</pre>
+
+<button class="btn btn-primary" @onclick="ScrollUp">to top</button>
+
+
+
+    @code{
+
+    [Inject]
+    private IJSRuntime jsRuntime { get; set; }
+
+    private async void ScrollUp()
+    {
+        var jsModule = await jsRuntime.InvokeAsync<IJSObjectReference>("import", "./js/scrollup.js");
+        await jsModule.InvokeVoidAsync("scrollToTop");
+    }
+
+
+    }
